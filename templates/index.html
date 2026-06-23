@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Audit Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <h2>Audit Tool</h2>
+
+        <label>Mode</label>
+        <select id="mode">
+            <option value="recon">Reconciliation</option>
+            <option value="single">Single Audit</option>
+        </select>
+
+        <br><br>
+
+        <input type="file" id="file1">
+        <input type="file" id="file2">
+        <input type="file" id="fileSingle" style="display:none;">
+
+        <br><br>
+
+        <button id="uploadBtn">Run Audit</button>
+
+        <hr>
+
+        <label>Filter Department</label>
+        <select id="deptFilter">
+            <option value="all">All</option>
+        </select>
+    </div>
+
+    <!-- MAIN -->
+    <div class="main">
+
+        <div class="kpi-row">
+            <div class="card blue">
+                <h3>Total</h3>
+                <p id="totalRecords">0</p>
+            </div>
+
+            <div class="card red">
+                <h3>Issues</h3>
+                <p id="mismatchCount">0</p>
+            </div>
+
+            <div class="card orange">
+                <h3>Invalid</h3>
+                <p id="missingCount">0</p>
+            </div>
+        </div>
+
+        <div class="chart-box">
+            <canvas id="chart"></canvas>
+        </div>
+
+        <div class="table-box">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Department</th>
+                        <th>Doc1</th>
+                        <th>Doc2</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody"></tbody>
+            </table>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="/static/script.js"></script>
+
+</body>
+</html>
